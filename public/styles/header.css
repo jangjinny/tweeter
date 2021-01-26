@@ -1,0 +1,16 @@
+.header-container {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:#aae4e6;
+  background-image: url("https://www.transparenttextures.com/patterns/pw-pattern.png");
+  margin: 0;
+}
+
+.name {
+  font-size: 35px;
+  font-family: 'Source Sans Pro';
+}
