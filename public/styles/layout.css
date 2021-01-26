@@ -14,10 +14,10 @@ html {
  * Global layout stuff
  */
 
-body {
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
+.container {
+  display: flex;
+  justify-content: center;
+  background-color:#eceae2;
 }
 
 /*
