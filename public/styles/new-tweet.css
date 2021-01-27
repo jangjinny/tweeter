@@ -30,7 +30,7 @@ button {
 
 #button-counter {
   display: flex;
-  font: 'Bungee';
+  font-family:: 'Bungee';
   justify-content: space-between;
   font-weight: bold;
   color: black;
