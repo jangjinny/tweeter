@@ -38,3 +38,17 @@
 }
 
 /* footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+}
+
+.icons {
+  align-self: center;
+}
