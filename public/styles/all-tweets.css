@@ -1,13 +1,13 @@
 .tweet-container {  
   width: 90%;
-  border: 5px solid black;
+  border: 5px solid #313131;
   padding: 30px;
   margin: 30px;
 }
 
 /* header */
 
-header.profile {
+.profile {
   display: flex;
   justify-content: flex-start;
 
@@ -15,15 +15,26 @@ header.profile {
 
 .user-fullname {
   font-family: 'Source Sans Pro';
+  color: #313131;
   padding-right: 75%;
   padding-left: 20px;
 }
 
 .username {
   font-family: 'Source Sans Pro';
+  color: #313131;
 }
 
 
 /* tweet */
+
+.tweets {
+  background-color: transparent;
+  font-family: 'Source Sans Pro';
+  border : 0px solid #313131;
+  margin-bottom: 5px;
+  border-bottom-width : 5px;
+  font-size: 30px;
+}
 
 /* footer */
