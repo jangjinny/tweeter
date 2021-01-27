@@ -1,21 +1,23 @@
-.navContainer {
-  height: 120px;
-  box-sizing: border-box;
-  color:#ffffff;
-  background-color:#96d3da;
-  ;
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
+  color:#ffffff;
+  background-color:#96d3da;
+  height: 120px;
   padding: 1.5em;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .title {
-  font-size: 30px;
   font-family: 'Bungee'; 
+  font-size: 30px;
 }
 
 .subtitle {
-  font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 24px;
 }
