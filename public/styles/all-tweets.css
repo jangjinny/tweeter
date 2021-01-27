@@ -5,13 +5,8 @@
   margin: 30px;
 }
 
-.tweet-container:hover {  
+.tweet-container:hover {
   box-shadow: 8px 8px grey;
-}
-
-.username {
-  font-family: 'Source Sans Pro';
-  color: #313131;
 }
 
 /* header */
@@ -19,7 +14,7 @@
 .profile {
   display: flex;
   justify-content: flex-start;
-
+  
 }
 
 .user-fullname {
@@ -27,6 +22,11 @@
   color: #313131;
   padding-right: 75%;
   padding-left: 20px;
+}
+
+.username {
+  font-family: 'Source Sans Pro';
+  color: grey;
 }
 
 /* tweet */
