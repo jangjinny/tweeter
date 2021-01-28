@@ -32,8 +32,10 @@ $(document).ready(function() {
     const val = $('textarea').val();
 
     if (val.length > 140) {
+      $('.error-empty-text').hide();
       $('.error-word-limit').show();
     } else if (!(/\S/.test(val))) {
+      $('.error-word-limit').hide();
       $('.error-empty-text').show();
     } else {
       $('.error-word-limit').hide();
