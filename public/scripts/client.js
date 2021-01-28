@@ -1,5 +1,5 @@
 $(() => {
-  
+
   //--- LOAD tweet function & GET request to /tweets ---//
   function loadTweets() {
     $.ajax({
@@ -71,7 +71,7 @@ $(() => {
       const userFullName = user.name;
       const avatar = user.avatars;
       const userHandle = user.handle;
-      const date = object.created_at;
+      const date = new Date(object.created_at).toDateString();
   
       const markup = `
       <article class='tweet-container'>
