@@ -4,26 +4,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const dayjs = require('dayjs');
+
 $(document).ready(function() {
 
-  $('form').submit(function (event) {
-    console.log('handler for submit called')
-    event.preventDefault();
-  
-    $.ajax({
-      url: '/tweets',
-      method: 'POST', 
-      data: $(this).serialize()
-    })
-  });
-
+  //make ajax GET request to /tweets and receive an array of tweets in json
   function loadTweets() {
     $.ajax({
       url: '/tweets',
       method: 'GET',
       dataType: 'json',
-      success: (data) => {
-        console.log(data)
+      success: (tweets) => {
+        console.log("GET REQUEST", tweets)
+        renderTweets(tweets);
       },
       error: (error) => {
         console.log(error)
@@ -31,83 +24,92 @@ $(document).ready(function() {
     });
   }
 
-  const $tweetButton = $('#tweet-button');
+  loadTweets();
 
+  //make ajax POST request to send data to the server 
+  //handle submit event and prevent default form submission to stay on the page
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
+  $('form').submit(function (event) {
+    event.preventDefault();
+
+    const val = $('textarea').val();
+
+    if (val.length > 140) {
+      alert('Error: Tweet exceeds the word limit.')
+    } else if (!(/\S/.test(val))) {
+      alert('Error: Please enter a valid Tweet.')
+    } else {
+
+      const tweetText = $(this).serialize();
+    $.post('/tweets', tweetText) 
+      .then((response) => {
+        loadTweets();
+      })
     }
-  ];
+  });
+
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+
+  //create function to render tweets
 
   function renderTweets(tweets) { //input: array of objects
-    tweets.forEach(tweet => createTweetElement(tweet));
-  }
-  
-  function createTweetElement(object) {
-    const tweet = object.content.text;
-    const user = object.user;
-    const username = user.name;
-    const avatar = user.avatars;
-    const userHandle = user.handle;
-    const date = object.created_at;
+
+    $('.all-tweets').empty();
     
-    const markup = `
-    <article class="tweet-container">
-    <header class="profile">
-      <div class="img">
-      <img src="${avatar}">
-      </div>
-      <div class="user-fullname">
-        <h2>${username}</h2>
-      </div>
-      <div class="username">
-        <h2>${userHandle}</h2>
-      </div>
-    </header>
+    for (tweet of tweets) {
+      createTweetElement(tweet);
+      // $('#tweet-text').empty();
+    };
 
-    <div class="tweets">
-      <p>${tweet}</p>
-    </div>
-
-    <footer>
-      <div class="date">
+    function createTweetElement(object) {
+      const tweet = escape(object.content.text);
+      const user = object.user;
+      const userFullName = user.name;
+      const avatar = user.avatars;
+      const userHandle = user.handle;
+      const hour = dayjs(object.created_at).format('H');
+      const date = `Posted ${hour} hours ago`;
+  
+      const markup = `
+      \<div\>
+      <article class="tweet-container">
+      <header class="profile">
+        <div class='img'>
+        <img src="${avatar}">
+       </div>
+        <div class="user-fullname">
+          <h2>${userFullName}</h2>
+        </div>
+        <div class="username">
+          <h2>${userHandle}</h2>
+        </div>
+      </header>
+  
+      <div class="tweets">
+        <p>${tweet}</p>
+      </div>
+  
+      <footer>
+        <div class="date">
       <p>${date}</p>
-      </div>
-
-      <div class="icons">
-        <img src="/images/flag.svg">
-        <img src="/images/repeat.svg">
-        <img src="/images/heart.svg">
-      </div>
-    </footer>
-  </article>
-    `;
-
-    const $tweet = $('.all-tweets').append(markup);
-
-    return $tweet;
+        </div>
+  
+        <div class="icons">
+          <img src="/images/flag.svg">
+          <img src="/images/repeat.svg">
+          <img src="/images/heart.svg">
+        </div>
+      </footer>
+    </article>
+      `;
+  
+      const $tweet = $('.all-tweets').prepend(markup);
+      return $tweet;
+    }
   }
-
-  renderTweets(data)
-
   });
