@@ -1,5 +1,8 @@
-.tweet-container {  
+.all-tweets {
   width: 90%;
+}
+
+.tweet-container { 
   border: 5px solid #313131;
   padding: 30px;
   margin: 30px;
