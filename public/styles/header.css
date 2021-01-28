@@ -3,8 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#aae4e6;
-  background-image: url("https://www.transparenttextures.com/patterns/pw-pattern.png");
+  background-image: linear-gradient(#aae4e6, #ffe77d);
   height: 400px;
   width: 100%;
   margin-top: 120px;
@@ -12,5 +11,6 @@
 
 .name {
   font-family: 'Source Sans Pro';
+  color: #363636;
   font-size: 35px;
 }

@@ -3,8 +3,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  color:#ffffff;
-  background-color:#96d3da;
+  color:#363636;
+  background-color: #aae4e6;
   height: 120px;
   padding: 1.5em;
   position: fixed;
@@ -14,10 +14,12 @@ nav {
 
 .title {
   font-family: 'Bungee'; 
-  font-size: 30px;
+  font-size: 35px;
+  margin-left: 20px;
 }
 
 .subtitle {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 24px;
+  margin-right: 20px;
 }

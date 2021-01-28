@@ -37,7 +37,7 @@
 
 #tweet-text {
   background-color: transparent;
-  border : 0px solid #313131;
+  border : 0px solid #363636;
   margin-bottom: 10px;
   border-bottom-width : 5px;
 }
@@ -57,10 +57,15 @@
 
 #tweet-button {
   font-family: 'Bungee';
-  color: #ffffff;
-  background: #96d3da;
+  color: #363636;
+  background: #aae4e6;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+#tweet-button:hover {
+  box-shadow: 3px 3px grey;
+  background:#2fa7b4;
 }
 
 .over-word-limit {
