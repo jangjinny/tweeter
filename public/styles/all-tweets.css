@@ -6,6 +6,7 @@
   border: 5px solid #313131;
   padding: 30px;
   margin: 30px;
+  background-color: #fafafa;
 }
 
 .tweet-container:hover div.username {
