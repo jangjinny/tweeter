@@ -6,6 +6,34 @@
 
 $(document).ready(function() {
 
+  $('form').submit(function (event) {
+    console.log('handler for submit called')
+    event.preventDefault();
+  
+    $.ajax({
+      url: '/tweets',
+      method: 'POST', 
+      data: $(this).serialize()
+    })
+  });
+
+  function loadTweets() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log(data)
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    });
+  }
+
+  const $tweetButton = $('#tweet-button');
+
+
   const data = [
     {
       "user": {
