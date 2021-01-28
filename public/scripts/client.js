@@ -1,12 +1,6 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-$(document).ready(function() {
+$(() => {
   
-  //make ajax GET request to /tweets and receive an array of tweets in json
+  //--- LOAD tweet function & GET request to /tweets ---//
   function loadTweets() {
     $.ajax({
       url: '/tweets',
@@ -16,59 +10,63 @@ $(document).ready(function() {
         renderTweets(tweets);
       },
       error: (error) => {
-        console.log(error)
+        console.log(error);
       }
     });
   }
 
   loadTweets();
 
-  //make ajax POST request to send data to the server 
-  //handle submit event and prevent default form submission to stay on the page
+  //--- POST request to send data to server ---//
+  $('form').submit(function(event) {
 
-  $('form').submit(function (event) {
+    //prevents default form submission and stays on the page
     event.preventDefault();
 
-    const val = $('textarea').val();
+    //error handling for exceeding word count and empty forms
+    const textVal = $('textarea').val();
 
-    if (val.length > 140) {
+    if (textVal.length > 140) {
       $('.error-empty-text').hide();
-      $('.error-word-limit').slideDown( "slow" );
+      $('.error-word-limit').slideDown('slow');
 
-    } else if (!(/\S/.test(val))) {
+    } else if (!(/\S/.test(textVal))) {
       $('.error-word-limit').hide();
-      $('.error-empty-text').slideDown( "slow" );
+      $('.error-empty-text').slideDown('slow');
+
     } else {
       $('.error-word-limit').hide();
       $('.error-empty-text').hide();
+
       const tweetText = $(this).serialize();
-    $.post('/tweets', tweetText) 
-      .then((response) => {
-        loadTweets();
-      })
+
+      $.post('/tweets', tweetText)
+        .then(() => {
+          loadTweets();
+        });
     }
   });
 
+  //--- ESCAPE function to prevent XSS ---//
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
 
+  //--- RENDER tweet function ---//
+  function renderTweets(tweets) {
 
-  //create function to render tweets
-
-  function renderTweets(tweets) { //input: array of objects
-
+    //empty all child nodes
     $('.all-tweets').empty();
     
-    for (tweet of tweets) {
+    for (let tweet of tweets) {
       createTweetElement(tweet);
-      // $('#tweet-text').empty();
-    };
+    }
 
+    //--- CREATE tweets from objects ---//
     function createTweetElement(object) {
-      const tweet = escape(object.content.text);
+      const tweetContent = escape(object.content.text);
       const user = object.user;
       const userFullName = user.name;
       const avatar = user.avatars;
@@ -76,32 +74,32 @@ $(document).ready(function() {
       const date = object.created_at;
   
       const markup = `
-      <article class="tweet-container">
-      <header class="profile">
+      <article class='tweet-container'>
+      <header class='profile'>
         <div class='img'>
         <img src="${avatar}">
        </div>
-        <div class="user-fullname">
+        <div class='user-fullname'>
           <h2>${userFullName}</h2>
         </div>
-        <div class="username">
+        <div class='username'>
           <h2>${userHandle}</h2>
         </div>
       </header>
   
-      <div class="tweets">
-        <p>${tweet}</p>
+      <div class='tweets'>
+        <p>${tweetContent}</p>
       </div>
   
       <footer>
-        <div class="date">
+        <div class='date'>
         <p>${date}</p>
         </div>
   
-        <div class="icons">
-          <img src="/images/flag.svg">
-          <img src="/images/repeat.svg">
-          <img src="/images/heart.svg">
+        <div class='icons'>
+          <img src='/images/flag.svg'>
+          <img src='/images/repeat.svg'>
+          <img src='/images/heart.svg'>
         </div>
       </footer>
     </article>
@@ -111,4 +109,4 @@ $(document).ready(function() {
       return $tweet;
     }
   }
-  });
+});
