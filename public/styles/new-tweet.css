@@ -3,6 +3,8 @@
   border: 1px solid #fcc2c3;
   float: left;
   padding: 20px 30px;
+  display: none; 
+  margin-bottom: 30px; 
 }
 
 .error-empty-text {
@@ -10,6 +12,8 @@
   border: 1px solid #fcc2c3;
   float: left;
   padding: 20px 30px;
+  display: none;
+  margin-bottom: 30px;
 }
 
 .error-text {
