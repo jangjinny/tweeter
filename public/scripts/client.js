@@ -33,10 +33,11 @@ $(document).ready(function() {
 
     if (val.length > 140) {
       $('.error-empty-text').hide();
-      $('.error-word-limit').show();
+      $('.error-word-limit').slideDown( "slow" );
+
     } else if (!(/\S/.test(val))) {
       $('.error-word-limit').hide();
-      $('.error-empty-text').show();
+      $('.error-empty-text').slideDown( "slow" );
     } else {
       $('.error-word-limit').hide();
       $('.error-empty-text').hide();
