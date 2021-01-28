@@ -35,6 +35,8 @@
     <!-- Counter JS-->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
+    <!-- Ajax with jQuery-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> 
 
   </head>
     <body>
@@ -55,112 +57,28 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div class="error-word-limit">
+          <span class="error-text">Error: Tweet exceeds the word limit.</span>
+        </div>
+
+        <div class="error-empty-text">
+          <span class="error-text">Error: Please enter a valid Tweet.</span>
+        </div>
+
         <form class="prompt" method="POST" action="/tweets">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div id="button-counter">
-            <button type="submit"><b>Tweet</b></button>
+            <button type="submit" id="tweet-button" ><b>Tweet</b></button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
       <section class="all-tweets">
-        <article class="tweet-container">
 
-          <header class="profile">
-            <div class="img">
-            <img src="/images/avatar.png">
-            </div>
-            <div class="user-fullname">
-              <h2>Monica Geller</h2>
-            </div>
-            <div class="username">
-              <h2>@friends</h2>
-            </div>
-          </header>
+        <!-- Insert incoming tweets -->
 
-          <div class="tweets">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum in velit eu commodo. Nunc vel consectetur ipsum. Integer finibus ullamcorper scelerisque. Morbi bibendum ante non ullamcorper viverra. Ut et enim lectus. Ut finibus ullamcorper urna, et elementum nunc interdum sed. </p>
-          </div>
-
-          <footer>
-            <div class="date">
-            <p>2 hours ago</p>
-            </div>
-
-            <div class="icons">
-              <img src="/images/flag.svg">
-              <img src="/images/repeat.svg">
-              <img src="/images/heart.svg">
-            </div>
-          </footer>
-
-        </article>
-
-        <article class="tweet-container">
-
-          <header class="profile">
-            <div class="img">
-            <img src="/images/avatar.png">
-            </div>
-            <div class="user-fullname">
-              <h2>Monica Geller</h2>
-            </div>
-            <div class="username">
-              <h2>@friends</h2>
-            </div>
-          </header>
-
-          <div class="tweets">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum in velit eu commodo. Nunc vel consectetur ipsum. Integer finibus ullamcorper scelerisque. Morbi bibendum ante non ullamcorper viverra. Ut et enim lectus. Ut finibus ullamcorper urna, et elementum nunc interdum sed. </p>
-          </div>
-
-          <footer>
-            <div class="date">
-            <p>2 hours ago</p>
-            </div>
-
-            <div class="icons">
-              <img src="/images/flag.svg">
-              <img src="/images/repeat.svg">
-              <img src="/images/heart.svg">
-            </div>
-          </footer>
-
-        </article>
-
-        <article class="tweet-container">
-
-          <header class="profile">
-            <div class="img">
-            <img src="/images/avatar.png">
-            </div>
-            <div class="user-fullname">
-              <h2>Monica Geller</h2>
-            </div>
-            <div class="username">
-              <h2>@friends</h2>
-            </div>
-          </header>
-
-          <div class="tweets">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum in velit eu commodo. Nunc vel consectetur ipsum. Integer finibus ullamcorper scelerisque. Morbi bibendum ante non ullamcorper viverra. Ut et enim lectus. Ut finibus ullamcorper urna, et elementum nunc interdum sed. </p>
-          </div>
-
-          <footer>
-            <div class="date">
-            <p>2 hours ago</p>
-            </div>
-
-            <div class="icons">
-              <img src="/images/flag.svg">
-              <img src="/images/repeat.svg">
-              <img src="/images/heart.svg">
-            </div>
-          </footer>
-
-        </article>
-      </section>>
+      </section>
       </main>
     </main>
   </body>
