@@ -4,10 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const dayjs = require('dayjs');
-
 $(document).ready(function() {
-
+  
   //make ajax GET request to /tweets and receive an array of tweets in json
   function loadTweets() {
     $.ajax({
@@ -15,7 +13,6 @@ $(document).ready(function() {
       method: 'GET',
       dataType: 'json',
       success: (tweets) => {
-        console.log("GET REQUEST", tweets)
         renderTweets(tweets);
       },
       error: (error) => {
@@ -35,11 +32,12 @@ $(document).ready(function() {
     const val = $('textarea').val();
 
     if (val.length > 140) {
-      alert('Error: Tweet exceeds the word limit.')
+      $('.error-word-limit').show();
     } else if (!(/\S/.test(val))) {
-      alert('Error: Please enter a valid Tweet.')
+      $('.error-empty-text').show();
     } else {
-
+      $('.error-word-limit').hide();
+      $('.error-empty-text').hide();
       const tweetText = $(this).serialize();
     $.post('/tweets', tweetText) 
       .then((response) => {
@@ -72,11 +70,9 @@ $(document).ready(function() {
       const userFullName = user.name;
       const avatar = user.avatars;
       const userHandle = user.handle;
-      const hour = dayjs(object.created_at).format('H');
-      const date = `Posted ${hour} hours ago`;
+      const date = object.created_at;
   
       const markup = `
-      \<div\>
       <article class="tweet-container">
       <header class="profile">
         <div class='img'>
@@ -96,7 +92,7 @@ $(document).ready(function() {
   
       <footer>
         <div class="date">
-      <p>${date}</p>
+        <p>${date}</p>
         </div>
   
         <div class="icons">
