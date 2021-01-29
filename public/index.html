@@ -53,7 +53,7 @@
     <!-- Top nav bar (fixed) -->
     <nav>
       <span class="title">TWEETER 🐦</span>
-      <div class="subtitle"><b>Write</b> a new tweet</div>
+          <button type="submit" id="subtitle"><b>Write</b> a new tweet</button>
     </nav>
 
     <div class="under-nav">
@@ -79,10 +79,10 @@
         </div>
 
         <form class="prompt" method="POST" action="/tweets">
-          <label for="tweet-text">What are you humming about?</label>
+          <label for="tweet-text" class="question">What are you humming about?</label>
           <textarea name="text" id="tweet-text" contenteditable></textarea>
           <div id="button-counter">
-            <button type="submit" id="tweet-button" ><b>Tweet</b></button>
+            <button type="submit" id="tweet-button"><b>Tweet</b></button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
