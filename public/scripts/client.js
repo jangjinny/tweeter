@@ -1,5 +1,7 @@
 $(() => {
 
+  dayjs.extend(window.dayjs_plugin_relativeTime);
+
   //--- LOAD tweet function & GET request to /tweets ---//
   function loadTweets() {
     $.ajax({
@@ -53,6 +55,7 @@ $(() => {
           $('textarea').val('');
         });
     }
+
   });
 
   //--- ESCAPE function to prevent XSS ---//
@@ -72,6 +75,7 @@ $(() => {
       createTweetElement(tweet);
     }
 
+
     //--- CREATE tweets from objects ---//
     function createTweetElement(object) {
       const tweetContent = escape(object.content.text);
@@ -79,8 +83,9 @@ $(() => {
       const userFullName = user.name;
       const avatar = user.avatars;
       const userHandle = user.handle;
-      const date = new Date(object.created_at).toDateString();
-  
+      const date = new Date(object.created_at).toISOString();
+      const time = dayjs(date).fromNow();
+
       const markup = `
       <article class='tweet-container'>
       <header class='profile'>
@@ -103,7 +108,7 @@ $(() => {
   
       <footer>
         <div class='date'>
-        <p>${date}</p>
+        <p>${time}</p>
         </div>
   
         <div class='icons'>
