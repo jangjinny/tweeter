@@ -50,6 +50,7 @@ $(() => {
       $.post('/tweets', tweetText)
         .then(() => {
           loadTweets();
+          $('textarea').val('');
         });
     }
   });
