@@ -78,12 +78,14 @@ $(() => {
       <header class='profile'>
         <div class='img'>
         <img src="${avatar}">
-       </div>
+        </div>
+        <div class="user-info">
         <div class='user-fullname'>
           <h2>${userFullName}</h2>
         </div>
         <div class='username'>
           <h2>${userHandle}</h2>
+        </div>
         </div>
       </header>
   
