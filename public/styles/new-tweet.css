@@ -45,14 +45,16 @@
 .prompt {
   display: flex;
   flex-direction: column;
+  font-weight: bold;
+  color: #363636;
 }
 
 #button-counter {
   display: flex;
-  font-family:: 'Bungee';
+  font-family: 'Bungee';
   justify-content: space-between;
   font-weight: bold;
-  color: black;
+  color:#363636;
 }
 
 #tweet-button {
@@ -70,4 +72,11 @@
 
 .over-word-limit {
   color: red;
+}
+
+/* Mobile version */
+@media only screen and (max-width: 767px) {
+  .prompt {
+    font-size: 23px;
+  }
 }

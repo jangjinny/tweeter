@@ -1,10 +1,16 @@
+.under-nav {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(#aae4e6, #ffe77d);
-  height: 400px;
+  height: 25rem;
   width: 100%;
   margin-top: 120px;
 }
@@ -13,4 +19,22 @@
   font-family: 'Source Sans Pro';
   color: #363636;
   font-size: 35px;
+}
+
+/* Desktop screen */
+
+@media only screen and (min-width: 1024px) {
+
+  .under-nav {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2%;
+  }
+
+  header {
+    width: 30%;
+    background-color: #f8f8f8;
+    margin-left: 5%;
+    margin-top: 4%;
+  }
 }

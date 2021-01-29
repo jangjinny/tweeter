@@ -22,6 +22,15 @@ html {
   background-color: #f8f8f8;
 }
 
+/* Desktop version */
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    margin-top: 10%;
+    width: 65%;
+  }
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

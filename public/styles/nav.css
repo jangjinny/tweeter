@@ -23,3 +23,22 @@ nav {
   font-size: 24px;
   margin-right: 20px;
 }
+
+@media only screen and (max-width: 767px) {
+  nav {
+    padding: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title {
+    margin-left: 0;
+    margin-bottom: 1px;
+  }
+
+  .subtitle {
+    margin-right: 0;
+  }
+
+}
