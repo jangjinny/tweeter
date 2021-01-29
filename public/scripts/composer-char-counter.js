@@ -1,6 +1,6 @@
 $(() => {
 
-$("#tweet-text").on('keyup', function(event) {
+$("#tweet-text").on('keyup', function() {
   let text = $(this).val();
   let textCount = 140 - text.length;
 

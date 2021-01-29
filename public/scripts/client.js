@@ -25,14 +25,11 @@ $(() => {
     document.getElementById('tweet-text').focus();
   });
 
-
   //--- POST request to send data to server ---//
   $('form').submit(function(event) {
 
-    //prevents default form submission and stays on the page
     event.preventDefault();
 
-    //error handling for exceeding word count and empty forms
     const textVal = $('textarea').val();
 
     if (textVal.length > 140) {
@@ -52,6 +49,7 @@ $(() => {
       $.post('/tweets', tweetText)
         .then(() => {
           loadTweets();
+          $('.counter').val(140);
           $('textarea').val('');
         });
     }
@@ -108,13 +106,13 @@ $(() => {
   
       <footer>
         <div class='date'>
-        <p>${time}</p>
+        <p>Posted ${time}</p>
         </div>
   
         <div class='icons'>
-          <img src='/images/flag.svg'>
-          <img src='/images/repeat.svg'>
-          <img src='/images/heart.svg'>
+          <i class="far fa-flag fa-2x"></i>
+          <i class="fas fa-retweet fa-2x"></i>
+          <i class="far fa-heart fa-2x"></i>
         </div>
       </footer>
     </article>
