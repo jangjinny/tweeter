@@ -39,7 +39,9 @@
   background-color: transparent;
   border : 0px solid #363636;
   margin-bottom: 10px;
+  margin-top: 20px;
   border-bottom-width : 5px;
+  resize: none;
 }
 
 .prompt {
