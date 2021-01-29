@@ -17,6 +17,13 @@ $(() => {
 
   loadTweets();
 
+  //--- Handle compose button ---//
+  const $composeButton = $('#subtitle');
+  $composeButton.click(() => {
+    document.getElementById('tweet-text').focus();
+  });
+
+
   //--- POST request to send data to server ---//
   $('form').submit(function(event) {
 

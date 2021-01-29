@@ -26,8 +26,9 @@ html {
 
 @media only screen and (min-width: 1024px) {
   .container {
-    margin-top: 10%;
+    /* margin-top: 10%; */
     width: 65%;
+    margin-top: 160px;
   }
 }
 
