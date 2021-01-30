@@ -1,4 +1,4 @@
-/**** error boxes ****/
+/* error boxes */
 
 .error-word-limit {
   background-color: #fce4e4;
@@ -27,7 +27,7 @@
   text-shadow: 1px 1px rgba(250,250,250,.3);
 }
 
-/**** new incoming tweet box ****/
+/* new incoming tweet box */
 
 .new-tweet {
   display: flex;

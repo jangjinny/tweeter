@@ -82,8 +82,6 @@ footer {
   align-self: center;
 }
 
-
-
 /* Mobile version*/
 @media only screen and (max-width: 767px) {
   .tweets {
