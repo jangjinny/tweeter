@@ -1,6 +1,9 @@
 $(() => {
 
+  //-- Plugin for dayjs ---//
   dayjs.extend(window.dayjs_plugin_relativeTime);
+
+
 
   //--- LOAD tweet function & GET request to /tweets ---//
   function loadTweets() {
@@ -19,11 +22,14 @@ $(() => {
 
   loadTweets();
 
+
+
   //--- Handle compose button ---//
   const $composeButton = $('#subtitle');
   $composeButton.click(() => {
     document.getElementById('tweet-text').focus();
   });
+
 
   //--- POST request to send data to server ---//
   $('form').submit(function(event) {
@@ -32,6 +38,7 @@ $(() => {
 
     const textVal = $('textarea').val();
 
+    //error handling 
     if (textVal.length > 140) {
       $('.error-empty-text').hide();
       $('.error-word-limit').slideDown('slow');
@@ -55,6 +62,7 @@ $(() => {
     }
 
   });
+
 
   //--- ESCAPE function to prevent XSS ---//
   const escape =  function(str) {
@@ -108,7 +116,6 @@ $(() => {
         <div class='date'>
         <p>Posted ${time}</p>
         </div>
-  
         <div class='icons'>
           <i class="far fa-flag fa-2x"></i>
           <i class="fas fa-retweet fa-2x"></i>
