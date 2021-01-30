@@ -4,6 +4,15 @@ Tweeter is a simple, single-page Twitter clone.
 
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
 
+
+## Screenshots 
+
+!['Homepage on desktop screen'](https://github.com/jangjinny/tweeter/blob/master/docs/tweeter-homepage.png?raw=true)
+!['Hovering over new tweet to display username and icons'](https://github.com/jangjinny/tweeter/blob/master/docs/new-tweet.png?raw=true)
+!['Tablet screen version of app'](https://github.com/jangjinny/tweeter/blob/master/docs/tablet-screen.png?raw=true)
+!['Error message displayed when tweet exceeds the word count - tablet version'](https://github.com/jangjinny/tweeter/blob/master/docs/text-error.png?raw=true)
+!['Mobile screen version of app'](https://github.com/jangjinny/tweeter/blob/master/docs/mobile-screen.png?raw=true)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
